@@ -1,0 +1,23 @@
+{
+  "name": "webcrawlerhttp",
+  "version": "1.0.0",
+  "description": "Http project",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leealexeyvl/webcrawlerhttp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leealexeyvl/webcrawlerhttp/issues"
+  },
+  "homepage": "https://github.com/Leealexeyvl/webcrawlerhttp#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
