@@ -37,4 +37,28 @@ function normalizeUrl(urlString) {
   return hostpath;
 }
 
-module.exports = { normalizeUrl, getUrlsFromHtml };
+async function crawlPage(currentUrl) {
+  console.log(`actively crawling: ${currentUrl}`);
+
+  try {
+    const response = await fetch(currentUrl);
+    if (response.status > 399) {
+      console.log(
+        `error in fetch with status code: ${response.status} on page: ${currentUrl}`
+      );
+      return;
+    }
+    const contentType = response.headers.get("content-type");
+    if (!contentType.includes("text/html")) {
+      console.log(
+        `non html response with content-type: ${contentType} on page: ${currentUrl}`
+      );
+      return;
+    }
+    console.log(await response.text());
+  } catch (err) {
+    console.log(`error in fetch: ${err.message} on page: ${currentUrl}`);
+  }
+}
+
+module.exports = { normalizeUrl, getUrlsFromHtml, crawlPage };
